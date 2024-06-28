@@ -23,7 +23,9 @@ body {
     background-color: #aaaaaa;
     color: #ecea5f;
     width: 500px;
+    height: 90px;
     text-align: right;
+    font-size:60pt;
 }
 
 #clear {
