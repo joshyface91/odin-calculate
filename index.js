@@ -172,7 +172,7 @@ document.addEventListener("click", function showValue(event) {
                 screen.textContent += "/";
             }
             break;
-// uses "=" button to log data as variables, runs operate() with variables, and displays the result
+// uses "=" button to log data as variables, runs operate() with assigned variable values, and displays the result
         case "equals":
             if (screen.textContent.includes("+")) {
                 let operant = "+";
@@ -209,46 +209,18 @@ document.addEventListener("click", function showValue(event) {
     }
 })
 
+// sets reset button to clear screen data, which is what loads all variables for calculations
+const resetButton = document.querySelector("#reset");
+resetButton.addEventListener("click", function resetValue() {
+    const resetScreen = document.querySelector("#screen");
+    resetScreen.textContent = "";
+});
 
-// window.addEventListener("DOMContentLoaded", () => {
-//     const equals = document.querySelector("#equals");
-//     equals.addEventListener("click", () => {
-//         const screen = document.querySelector("#screen").innerHTML;
-//         let equationBreakdown = screen.split("");
-//         if (equationBreakdown.includes("+")) {
-//             let operant = "+";
-//             let halfPlus = screen.split("+");
-//             let valueA = Number(halfPlus[0]);
-//             let valueB = Number(halfPlus[1]);
-//             let results = operate(operant, valueA, valueB);
-//             screen.textContent = Math.round(results * 100) / 100;
-//         } else if (equationBreakdown.includes("-")) {
-//             let operant = "-";
-//             let halfMinus = screen.split("-");
-//             let valueA = Number(halfMinus[0]);
-//             let valueB = Number(halfMinus[1]);
-//             let results = operate(operant, valueA, valueB);
-//             screen.textContent = Math.round(results * 100) / 100;
-//         } else if (equationBreakdown.includes("*")) {
-//             let operant = "*";
-//             let halfMulti = screen.split("*");
-//             let valueA = Number(halfMulti[0]);
-//             let valueB = Number(halfMulti[1]);
-//             let results = operate(operant, valueA, valueB);
-//             screen.textContent = Math.round(results * 100) / 100;
-//         } else if (equationBreakdown.includes("/")) {
-//             let operant = "/";
-//             let halfDivi = screen.split("/");
-//             let valueA = Number(halfDivi[0]);
-//             let valueB = Number(halfDivi[1]);
-//             let results = operate(operant, valueA, valueB);
-//             screen.textContent = Math.round(results * 100) / 100;
-//         } else {
-//             screen.textContent = Math.round(screen * 100) / 100;
-//         }
-//     })
     
-// })
+
+
+
+// sets up clear button to wipe displayed content from screen div and reset variable values
 
 
 // testing
