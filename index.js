@@ -112,7 +112,7 @@ document.addEventListener("click", function showValue(event) {
                     screen.textContent += ".";
                 }
             break;
-        case "+":
+        case "add":
             let symbolPlus = document.querySelector("#screen").innerHTML;
             let charsPlus = symbolPlus.split("");
             if (charsPlus.includes("+")) {
@@ -127,7 +127,7 @@ document.addEventListener("click", function showValue(event) {
                 screen.textContent += "+";
             }
             break;
-        case "-":
+        case "subtract":
             let symbolMinus = document.querySelector("#screen").innerHTML;
             let charsMinus = symbolMinus.split("");
             if (charsMinus.includes("+")) {
@@ -142,7 +142,7 @@ document.addEventListener("click", function showValue(event) {
                 screen.textContent += "-";
             }
             break;
-        case "*":
+        case "multiply":
             let symbolMulti = document.querySelector("#screen").innerHTML;
             let charsMulti = symbolMulti.split("");
             if (charsMulti.includes("+")) {
@@ -157,7 +157,7 @@ document.addEventListener("click", function showValue(event) {
                 screen.textContent += "*";
             }
             break;
-        case "/":
+        case "divide":
             let symbolDivi = document.querySelector("#screen").innerHTML;
             let charsDivi = symbolDivi.split("");
             if (charsDivi.includes("+")) {
@@ -172,10 +172,84 @@ document.addEventListener("click", function showValue(event) {
                 screen.textContent += "/";
             }
             break;
+// uses "=" button to log data as variables, runs operate() with variables, and displays the result
+        case "equals":
+            if (screen.textContent.includes("+")) {
+                let operant = "+";
+                let halfPlus = screen.textContent.split("+");
+                let valueA = Number(halfPlus[0]);
+                let valueB = Number(halfPlus[1]);
+                let results = operate(operant, valueA, valueB);
+                screen.textContent = Math.round(results * 100) / 100;
+            } else if (screen.textContent.includes("-")) {
+                let operant = "-";
+                let halfMinus = screen.textContent.split("-");
+                let valueA = Number(halfMinus[0]);
+                let valueB = Number(halfMinus[1]);
+                let results = operate(operant, valueA, valueB);
+                screen.textContent = Math.round(results * 100) / 100;
+            } else if (screen.textContent.includes("*")) {
+                let operant = "*";
+                let halfMulti = screen.textContent.split("*");
+                let valueA = Number(halfMulti[0]);
+                let valueB = Number(halfMulti[1]);
+                let results = operate(operant, valueA, valueB);
+                screen.textContent = Math.round(results * 100) / 100;
+            } else if (screen.textContent.includes("/")) {
+                let operant = "/";
+                let halfDivi = screen.textContent.split("/");
+                let valueA = Number(halfDivi[0]);
+                let valueB = Number(halfDivi[1]);
+                let results = operate(operant, valueA, valueB);
+                screen.textContent = Math.round(results * 100) / 100;
+            } else {
+                screen.textContent = Math.round(screen.textContent * 100) / 100;
+            }
+            break;
     }
 })
 
-//uses "=" button to log data as variables, runs operate() with variables, and displays the result
+
+// window.addEventListener("DOMContentLoaded", () => {
+//     const equals = document.querySelector("#equals");
+//     equals.addEventListener("click", () => {
+//         const screen = document.querySelector("#screen").innerHTML;
+//         let equationBreakdown = screen.split("");
+//         if (equationBreakdown.includes("+")) {
+//             let operant = "+";
+//             let halfPlus = screen.split("+");
+//             let valueA = Number(halfPlus[0]);
+//             let valueB = Number(halfPlus[1]);
+//             let results = operate(operant, valueA, valueB);
+//             screen.textContent = Math.round(results * 100) / 100;
+//         } else if (equationBreakdown.includes("-")) {
+//             let operant = "-";
+//             let halfMinus = screen.split("-");
+//             let valueA = Number(halfMinus[0]);
+//             let valueB = Number(halfMinus[1]);
+//             let results = operate(operant, valueA, valueB);
+//             screen.textContent = Math.round(results * 100) / 100;
+//         } else if (equationBreakdown.includes("*")) {
+//             let operant = "*";
+//             let halfMulti = screen.split("*");
+//             let valueA = Number(halfMulti[0]);
+//             let valueB = Number(halfMulti[1]);
+//             let results = operate(operant, valueA, valueB);
+//             screen.textContent = Math.round(results * 100) / 100;
+//         } else if (equationBreakdown.includes("/")) {
+//             let operant = "/";
+//             let halfDivi = screen.split("/");
+//             let valueA = Number(halfDivi[0]);
+//             let valueB = Number(halfDivi[1]);
+//             let results = operate(operant, valueA, valueB);
+//             screen.textContent = Math.round(results * 100) / 100;
+//         } else {
+//             screen.textContent = Math.round(screen * 100) / 100;
+//         }
+//     })
+    
+// })
+
 
 // testing
-console.log(operate("-", 6.54, 5.37));
+// console.log(operate("-", 6.54, 5.37));
