@@ -296,8 +296,12 @@ document.addEventListener("click", function showValue(event) {
                 let halfDivi = screen.textContent.split("/");
                 let valueA = Number(halfDivi[0]);
                 let valueB = Number(halfDivi[1]);
-                let results = operate(operant, valueA, valueB);
-                screen.textContent = Math.round(results * 100) / 100;
+                if (valueB === 0) {
+                    screen.textContent = "Stop that.";
+                } else {
+                    let results = operate(operant, valueA, valueB);
+                    screen.textContent = Math.round(results * 100) / 100;
+                }
             } else {
                 screen.textContent = Math.round(screen.textContent * 100) / 100;
             }
@@ -312,12 +316,17 @@ resetButton.addEventListener("click", function resetValue() {
     resetScreen.textContent = "";
 });
 
-    
-
-
-
-// sets up clear button to wipe displayed content from screen div and reset variable values
+// designates a backspace button to allow the user to undo something
+const backspace = document.querySelector("#backspace");
+backspace.addEventListener("click", function undo() {
+    const undoScreen = document.querySelector("#screen");
+    let charsResult = undoScreen.textContent.split("").filter((result) => {
+        return /\S/.test(result);
+    });
+    charsResult.pop();
+    let resultRevised = charsResult.join("");
+    undoScreen.textContent = resultRevised;
+});
 
 
 // testing
-// console.log(operate("-", 6.54, 5.37));
