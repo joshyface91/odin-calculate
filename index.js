@@ -116,13 +116,37 @@ document.addEventListener("click", function showValue(event) {
             let symbolPlus = document.querySelector("#screen").innerHTML;
             let charsPlus = symbolPlus.split("");
             if (charsPlus.includes("+")) {
-                screen.textContent = screen.textContent.replace("+", "+");
+                let operant = "+";
+                let halfPlus = screen.textContent.split("+");
+                let valueA = Number(halfPlus[0]);
+                let valueB = Number(halfPlus[1]);
+                let results = operate(operant, valueA, valueB);
+                screen.textContent = Math.round(results * 100) / 100;
+                screen.textContent += "+";
             } else if (charsPlus.includes("-")) {
-                screen.textContent = screen.textContent.replace("-", "+");
+                let operant = "-";
+                let halfMinus = screen.textContent.split("-");
+                let valueA = Number(halfMinus[0]);
+                let valueB = Number(halfMinus[1]);
+                let results = operate(operant, valueA, valueB);
+                screen.textContent = Math.round(results * 100) / 100;
+                screen.textContent += "+";
             } else if (charsPlus.includes("*")) {
-                screen.textContent = screen.textContent.replace("*", "+");
+                let operant = "*";
+                let halfMulti = screen.textContent.split("*");
+                let valueA = Number(halfMulti[0]);
+                let valueB = Number(halfMulti[1]);
+                let results = operate(operant, valueA, valueB);
+                screen.textContent = Math.round(results * 100) / 100;
+                screen.textContent += "+";
             } else if (charsPlus.includes("/")) {
-                screen.textContent = screen.textContent.replace("/", "+");
+                let operant = "/";
+                let halfDivi = screen.textContent.split("/");
+                let valueA = Number(halfDivi[0]);
+                let valueB = Number(halfDivi[1]);
+                let results = operate(operant, valueA, valueB);
+                screen.textContent = Math.round(results * 100) / 100;
+                screen.textContent += "+";
             } else {
                 screen.textContent += "+";
             }
@@ -131,13 +155,37 @@ document.addEventListener("click", function showValue(event) {
             let symbolMinus = document.querySelector("#screen").innerHTML;
             let charsMinus = symbolMinus.split("");
             if (charsMinus.includes("+")) {
-                screen.textContent = screen.textContent.replace("+", "-");
+                let operant = "+";
+                let halfPlus = screen.textContent.split("+");
+                let valueA = Number(halfPlus[0]);
+                let valueB = Number(halfPlus[1]);
+                let results = operate(operant, valueA, valueB);
+                screen.textContent = Math.round(results * 100) / 100;
+                screen.textContent += "-";
             } else if (charsMinus.includes("-")) {
-                screen.textContent = screen.textContent.replace("-", "-");
+                let operant = "-";
+                let halfMinus = screen.textContent.split("-");
+                let valueA = Number(halfMinus[0]);
+                let valueB = Number(halfMinus[1]);
+                let results = operate(operant, valueA, valueB);
+                screen.textContent = Math.round(results * 100) / 100;
+                screen.textContent += "-";
             } else if (charsMinus.includes("*")) {
-                screen.textContent = screen.textContent.replace("*", "-");
+                let operant = "*";
+                let halfMulti = screen.textContent.split("*");
+                let valueA = Number(halfMulti[0]);
+                let valueB = Number(halfMulti[1]);
+                let results = operate(operant, valueA, valueB);
+                screen.textContent = Math.round(results * 100) / 100;
+                screen.textContent += "-";
             } else if (charsMinus.includes("/")) {
-                screen.textContent = screen.textContent.replace("/", "-");
+                let operant = "/";
+                let halfDivi = screen.textContent.split("/");
+                let valueA = Number(halfDivi[0]);
+                let valueB = Number(halfDivi[1]);
+                let results = operate(operant, valueA, valueB);
+                screen.textContent = Math.round(results * 100) / 100;
+                screen.textContent += "-";
             } else {
                 screen.textContent += "-";
             }
@@ -146,13 +194,37 @@ document.addEventListener("click", function showValue(event) {
             let symbolMulti = document.querySelector("#screen").innerHTML;
             let charsMulti = symbolMulti.split("");
             if (charsMulti.includes("+")) {
-                screen.textContent = screen.textContent.replace("+", "*");
+                let operant = "+";
+                let halfPlus = screen.textContent.split("+");
+                let valueA = Number(halfPlus[0]);
+                let valueB = Number(halfPlus[1]);
+                let results = operate(operant, valueA, valueB);
+                screen.textContent = Math.round(results * 100) / 100;
+                screen.textContent += "*";
             } else if (charsMulti.includes("-")) {
-                screen.textContent = screen.textContent.replace("-", "*");
+                let operant = "-";
+                let halfMinus = screen.textContent.split("-");
+                let valueA = Number(halfMinus[0]);
+                let valueB = Number(halfMinus[1]);
+                let results = operate(operant, valueA, valueB);
+                screen.textContent = Math.round(results * 100) / 100;
+                screen.textContent += "*";
             } else if (charsMulti.includes("*")) {
-                screen.textContent = screen.textContent.replace("*", "*");
+                let operant = "*";
+                let halfMulti = screen.textContent.split("*");
+                let valueA = Number(halfMulti[0]);
+                let valueB = Number(halfMulti[1]);
+                let results = operate(operant, valueA, valueB);
+                screen.textContent = Math.round(results * 100) / 100;
+                screen.textContent += "*";
             } else if (charsMulti.includes("/")) {
-                screen.textContent = screen.textContent.replace("/", "*");
+                let operant = "/";
+                let halfDivi = screen.textContent.split("/");
+                let valueA = Number(halfDivi[0]);
+                let valueB = Number(halfDivi[1]);
+                let results = operate(operant, valueA, valueB);
+                screen.textContent = Math.round(results * 100) / 100;
+                screen.textContent += "*";
             } else {
                 screen.textContent += "*";
             }
@@ -161,13 +233,37 @@ document.addEventListener("click", function showValue(event) {
             let symbolDivi = document.querySelector("#screen").innerHTML;
             let charsDivi = symbolDivi.split("");
             if (charsDivi.includes("+")) {
-                screen.textContent = screen.textContent.replace("+", "/");
+                let operant = "+";
+                let halfPlus = screen.textContent.split("+");
+                let valueA = Number(halfPlus[0]);
+                let valueB = Number(halfPlus[1]);
+                let results = operate(operant, valueA, valueB);
+                screen.textContent = Math.round(results * 100) / 100;
+                screen.textContent += "/";
             } else if (charsDivi.includes("-")) {
-                screen.textContent = screen.textContent.replace("-", "/");
+                let operant = "-";
+                let halfMinus = screen.textContent.split("-");
+                let valueA = Number(halfMinus[0]);
+                let valueB = Number(halfMinus[1]);
+                let results = operate(operant, valueA, valueB);
+                screen.textContent = Math.round(results * 100) / 100;
+                screen.textContent += "/";
             } else if (charsDivi.includes("*")) {
-                screen.textContent = screen.textContent.replace("*", "/");
+                let operant = "*";
+                let halfMulti = screen.textContent.split("*");
+                let valueA = Number(halfMulti[0]);
+                let valueB = Number(halfMulti[1]);
+                let results = operate(operant, valueA, valueB);
+                screen.textContent = Math.round(results * 100) / 100;
+                screen.textContent += "/";
             } else if (charsDivi.includes("/")) {
-                screen.textContent = screen.textContent.replace("/", "/");
+                let operant = "/";
+                let halfDivi = screen.textContent.split("/");
+                let valueA = Number(halfDivi[0]);
+                let valueB = Number(halfDivi[1]);
+                let results = operate(operant, valueA, valueB);
+                screen.textContent = Math.round(results * 100) / 100;
+                screen.textContent += "/";
             } else {
                 screen.textContent += "/";
             }
