@@ -33,6 +33,8 @@ function operate (operant, valueA, valueB) {
     }
 }
 
+const screenDefault = document.querySelector("#screen");
+screenDefault.textContent = 0;
 
 
 //populates the display for the calculation on the screen field
@@ -40,37 +42,37 @@ document.addEventListener("click", function showValue(event) {
     const screen = document.querySelector("#screen");
 
     switch (event.target.id) {
-        case "1":
+        case "one":
             screen.textContent += "1";
             break;
-        case "2":
+        case "two":
             screen.textContent += "2";
             break;
-        case "3":
+        case "three":
             screen.textContent += "3";
             break;
-        case "4":
+        case "four":
             screen.textContent += "4";
             break;
-        case "5":
+        case "five":
             screen.textContent += "5";
             break;
-        case "6":
+        case "six":
             screen.textContent += "6";
             break;
-        case "7":
+        case "seven":
             screen.textContent += "7";
             break;
-        case "8":
+        case "eight":
             screen.textContent += "8";
             break;
-        case "9":
+        case "nine":
             screen.textContent += "9";
             break;
-        case "0":
+        case "zero":
             screen.textContent += "0";
             break;
-        case ".":
+        case "decimal":
             let symbolDeci = document.querySelector("#screen").innerHTML;
             let charsDeci = symbolDeci.split("");
             let wordDeci = charsDeci.join("");
@@ -120,33 +122,49 @@ document.addEventListener("click", function showValue(event) {
                 let halfPlus = screen.textContent.split("+");
                 let valueA = Number(halfPlus[0]);
                 let valueB = Number(halfPlus[1]);
-                let results = operate(operant, valueA, valueB);
-                screen.textContent = Math.round(results * 100) / 100;
-                screen.textContent += "+";
+                if (valueB === 0) {
+                    screen.textContent = valueA + "+";
+                } else {
+                    let results = operate(operant, valueA, valueB);
+                    screen.textContent = Math.round(results * 100) / 100;
+                    screen.textContent += "+";
+                }
             } else if (charsPlus.includes("-")) {
                 let operant = "-";
                 let halfMinus = screen.textContent.split("-");
                 let valueA = Number(halfMinus[0]);
                 let valueB = Number(halfMinus[1]);
-                let results = operate(operant, valueA, valueB);
-                screen.textContent = Math.round(results * 100) / 100;
-                screen.textContent += "+";
+                if (valueB === 0) {
+                    screen.textContent = valueA + "+";
+                } else {
+                    let results = operate(operant, valueA, valueB);
+                    screen.textContent = Math.round(results * 100) / 100;
+                    screen.textContent += "+";
+                }
             } else if (charsPlus.includes("*")) {
                 let operant = "*";
                 let halfMulti = screen.textContent.split("*");
                 let valueA = Number(halfMulti[0]);
                 let valueB = Number(halfMulti[1]);
-                let results = operate(operant, valueA, valueB);
-                screen.textContent = Math.round(results * 100) / 100;
-                screen.textContent += "+";
+                if (valueB === 0) {
+                    screen.textContent = valueA + "+";
+                } else {
+                    let results = operate(operant, valueA, valueB);
+                    screen.textContent = Math.round(results * 100) / 100;
+                    screen.textContent += "+";
+                }
             } else if (charsPlus.includes("/")) {
                 let operant = "/";
                 let halfDivi = screen.textContent.split("/");
                 let valueA = Number(halfDivi[0]);
                 let valueB = Number(halfDivi[1]);
-                let results = operate(operant, valueA, valueB);
-                screen.textContent = Math.round(results * 100) / 100;
-                screen.textContent += "+";
+                if (valueB === 0) {
+                    screen.textContent = valueA + "+";
+                } else {
+                    let results = operate(operant, valueA, valueB);
+                    screen.textContent = Math.round(results * 100) / 100;
+                    screen.textContent += "+";
+                }
             } else {
                 screen.textContent += "+";
             }
@@ -159,33 +177,49 @@ document.addEventListener("click", function showValue(event) {
                 let halfPlus = screen.textContent.split("+");
                 let valueA = Number(halfPlus[0]);
                 let valueB = Number(halfPlus[1]);
-                let results = operate(operant, valueA, valueB);
-                screen.textContent = Math.round(results * 100) / 100;
-                screen.textContent += "-";
+                if (valueB === 0) {
+                    screen.textContent = valueA + "-";
+                } else {
+                    let results = operate(operant, valueA, valueB);
+                    screen.textContent = Math.round(results * 100) / 100;
+                    screen.textContent += "-";
+                }
             } else if (charsMinus.includes("-")) {
                 let operant = "-";
                 let halfMinus = screen.textContent.split("-");
                 let valueA = Number(halfMinus[0]);
                 let valueB = Number(halfMinus[1]);
-                let results = operate(operant, valueA, valueB);
-                screen.textContent = Math.round(results * 100) / 100;
-                screen.textContent += "-";
+                if (valueB === 0) {
+                    screen.textContent = valueA + "-";
+                } else {
+                    let results = operate(operant, valueA, valueB);
+                    screen.textContent = Math.round(results * 100) / 100;
+                    screen.textContent += "-";
+                }
             } else if (charsMinus.includes("*")) {
                 let operant = "*";
                 let halfMulti = screen.textContent.split("*");
                 let valueA = Number(halfMulti[0]);
                 let valueB = Number(halfMulti[1]);
-                let results = operate(operant, valueA, valueB);
-                screen.textContent = Math.round(results * 100) / 100;
-                screen.textContent += "-";
+                if (valueB === 0) {
+                    screen.textContent = valueA + "-";
+                } else {
+                    let results = operate(operant, valueA, valueB);
+                    screen.textContent = Math.round(results * 100) / 100;
+                    screen.textContent += "-";
+                }
             } else if (charsMinus.includes("/")) {
                 let operant = "/";
                 let halfDivi = screen.textContent.split("/");
                 let valueA = Number(halfDivi[0]);
                 let valueB = Number(halfDivi[1]);
-                let results = operate(operant, valueA, valueB);
-                screen.textContent = Math.round(results * 100) / 100;
-                screen.textContent += "-";
+                if (valueB === 0) {
+                    screen.textContent = valueA + "-";
+                } else {
+                    let results = operate(operant, valueA, valueB);
+                    screen.textContent = Math.round(results * 100) / 100;
+                    screen.textContent += "-";
+                }
             } else {
                 screen.textContent += "-";
             }
@@ -198,33 +232,49 @@ document.addEventListener("click", function showValue(event) {
                 let halfPlus = screen.textContent.split("+");
                 let valueA = Number(halfPlus[0]);
                 let valueB = Number(halfPlus[1]);
-                let results = operate(operant, valueA, valueB);
-                screen.textContent = Math.round(results * 100) / 100;
-                screen.textContent += "*";
+                if (valueB === 0) {
+                    screen.textContent = valueA + "*";
+                } else {
+                    let results = operate(operant, valueA, valueB);
+                    screen.textContent = Math.round(results * 100) / 100;
+                    screen.textContent += "*";
+                }
             } else if (charsMulti.includes("-")) {
                 let operant = "-";
                 let halfMinus = screen.textContent.split("-");
                 let valueA = Number(halfMinus[0]);
                 let valueB = Number(halfMinus[1]);
-                let results = operate(operant, valueA, valueB);
-                screen.textContent = Math.round(results * 100) / 100;
-                screen.textContent += "*";
+                if (valueB === 0) {
+                    screen.textContent = valueA + "*";
+                } else {
+                    let results = operate(operant, valueA, valueB);
+                    screen.textContent = Math.round(results * 100) / 100;
+                    screen.textContent += "*";
+                }
             } else if (charsMulti.includes("*")) {
                 let operant = "*";
                 let halfMulti = screen.textContent.split("*");
                 let valueA = Number(halfMulti[0]);
                 let valueB = Number(halfMulti[1]);
-                let results = operate(operant, valueA, valueB);
-                screen.textContent = Math.round(results * 100) / 100;
-                screen.textContent += "*";
+                if (valueB === 0) {
+                    screen.textContent = valueA + "*";
+                } else {
+                    let results = operate(operant, valueA, valueB);
+                    screen.textContent = Math.round(results * 100) / 100;
+                    screen.textContent += "*";
+                }
             } else if (charsMulti.includes("/")) {
                 let operant = "/";
                 let halfDivi = screen.textContent.split("/");
                 let valueA = Number(halfDivi[0]);
                 let valueB = Number(halfDivi[1]);
-                let results = operate(operant, valueA, valueB);
-                screen.textContent = Math.round(results * 100) / 100;
-                screen.textContent += "*";
+                if (valueB === 0) {
+                    screen.textContent = valueA + "*";
+                } else {
+                    let results = operate(operant, valueA, valueB);
+                    screen.textContent = Math.round(results * 100) / 100;
+                    screen.textContent += "*";
+                }
             } else {
                 screen.textContent += "*";
             }
@@ -237,33 +287,49 @@ document.addEventListener("click", function showValue(event) {
                 let halfPlus = screen.textContent.split("+");
                 let valueA = Number(halfPlus[0]);
                 let valueB = Number(halfPlus[1]);
-                let results = operate(operant, valueA, valueB);
-                screen.textContent = Math.round(results * 100) / 100;
-                screen.textContent += "/";
+                if (valueB === 0) {
+                    screen.textContent = valueA + "/";
+                } else {
+                    let results = operate(operant, valueA, valueB);
+                    screen.textContent = Math.round(results * 100) / 100;
+                    screen.textContent += "/";
+                }
             } else if (charsDivi.includes("-")) {
                 let operant = "-";
                 let halfMinus = screen.textContent.split("-");
                 let valueA = Number(halfMinus[0]);
                 let valueB = Number(halfMinus[1]);
-                let results = operate(operant, valueA, valueB);
-                screen.textContent = Math.round(results * 100) / 100;
-                screen.textContent += "/";
+                if (valueB === 0) {
+                    screen.textContent = valueA + "/";
+                } else {
+                    let results = operate(operant, valueA, valueB);
+                    screen.textContent = Math.round(results * 100) / 100;
+                    screen.textContent += "/";
+                }
             } else if (charsDivi.includes("*")) {
                 let operant = "*";
                 let halfMulti = screen.textContent.split("*");
                 let valueA = Number(halfMulti[0]);
                 let valueB = Number(halfMulti[1]);
-                let results = operate(operant, valueA, valueB);
-                screen.textContent = Math.round(results * 100) / 100;
-                screen.textContent += "/";
+                if (valueB === 0) {
+                    screen.textContent = valueA + "/";
+                } else {
+                    let results = operate(operant, valueA, valueB);
+                    screen.textContent = Math.round(results * 100) / 100;
+                    screen.textContent += "/";
+                }
             } else if (charsDivi.includes("/")) {
                 let operant = "/";
                 let halfDivi = screen.textContent.split("/");
                 let valueA = Number(halfDivi[0]);
                 let valueB = Number(halfDivi[1]);
-                let results = operate(operant, valueA, valueB);
-                screen.textContent = Math.round(results * 100) / 100;
-                screen.textContent += "/";
+                if (valueB === 0) {
+                    screen.textContent = valueA + "/";
+                } else {
+                    let results = operate(operant, valueA, valueB);
+                    screen.textContent = Math.round(results * 100) / 100;
+                    screen.textContent += "/";
+                }
             } else {
                 screen.textContent += "/";
             }
@@ -316,7 +382,7 @@ resetButton.addEventListener("click", function resetValue() {
     resetScreen.textContent = "";
 });
 
-// designates a backspace button to allow the user to undo something
+// designates an UNDO button to allow the user to undo something
 const backspace = document.querySelector("#backspace");
 backspace.addEventListener("click", function undo() {
     const undoScreen = document.querySelector("#screen");

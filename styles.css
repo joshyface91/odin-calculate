@@ -15,27 +15,26 @@ body {
     flex-direction: column;
     gap: 100px;
     background-color: #FFDB58;
-    width: 700px;
+    border-radius: 10px;
+    width: 600px;
     height: 760px;
 }
 
 #screen {
-    background-color: #aaaaaa;
+    background-color: #979797;
     color: #ecea5f;
     width: 500px;
     height: 90px;
     text-align: right;
     font-size:60pt;
-}
-
-#clear {
-    display: flex;
+    clip-path: xywh(0 0px 100% 100% round 15% 0);
 }
 
 .buttons {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* color: rgb(44, 43, 43); */
 }
 
 .number-group {
@@ -44,10 +43,18 @@ body {
     align-items: center;
     flex-wrap: wrap;
     width: 300px;
+    position: relative;
 }
 
 .number-button {
     background-color: #ccaf46;
+    font-weight: bold;
+    color: rgb(75, 74, 74);
+    padding: 0;
+    border: none;
+    width: 80px;
+    height: 80px;
+    clip-path: polygon(50% 2%, 98% 25%, 98% 75%, 50% 98%, 2% 75%, 2% 25%);
 }
 
 .operant-group {
@@ -60,4 +67,23 @@ body {
 
 .operant-button {
     background-color: #998334;
+    font-weight: bold;
+    color: #4b4a4a;
+    padding: 0;
+    border: none;
+    width: 80px;
+    height: 80px;
+    clip-path: polygon(50% 2%, 98% 25%, 98% 75%, 50% 98%, 2% 75%, 2% 25%);
+}
+
+#equals {
+    background-color: #979797;
+    font-weight: bold;
+    color: #4b4a4a;
+}
+
+#reset, #backspace {
+    background-color: black;
+    font-weight: bold;
+    color: #4b4a4a;
 }
