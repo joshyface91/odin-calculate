@@ -16,8 +16,14 @@ body {
     gap: 100px;
     background-color: #FFDB58;
     border-radius: 10px;
-    width: 600px;
-    height: 760px;
+    width: 550px;
+    height: 700px;
+}
+
+@keyframes cursor-blink {
+    0% {
+        opacity: 0;
+    }
 }
 
 #screen {
@@ -28,6 +34,16 @@ body {
     text-align: right;
     font-size:60pt;
     clip-path: xywh(0 0px 100% 100% round 15% 0);
+    position: relative;
+}
+
+#screen::after {
+    content: "";
+    width: 35px;
+    height: 55px;
+    background: #ecea5f;
+    display: inline-block;
+    animation: cursor-blink 1.5s steps(2) infinite;
 }
 
 .buttons {
@@ -54,7 +70,12 @@ body {
     border: none;
     width: 80px;
     height: 80px;
+    cursor: pointer;
     clip-path: polygon(50% 2%, 98% 25%, 98% 75%, 50% 98%, 2% 75%, 2% 25%);
+}
+
+.number-button:active {
+    transform: translateY(3px);
 }
 
 .operant-group {
@@ -73,7 +94,12 @@ body {
     border: none;
     width: 80px;
     height: 80px;
+    cursor: pointer;
     clip-path: polygon(50% 2%, 98% 25%, 98% 75%, 50% 98%, 2% 75%, 2% 25%);
+}
+
+.operant-button:active {
+    transform: translateY(-3px);
 }
 
 #equals {

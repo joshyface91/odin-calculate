@@ -34,13 +34,84 @@ function operate (operant, valueA, valueB) {
 }
 
 const screenDefault = document.querySelector("#screen");
-screenDefault.textContent = 0;
+screenDefault.textContent = "";
 
+//binds specific keyboard strokes to dispatch the click event on the appropriate element
+document.addEventListener("keydown", checkKey);
+    
+function checkKey(event) {
+    switch (event.key) {
+        case "1":
+            one.dispatchEvent(buttonClick);
+        break;
+        case "2":
+            two.dispatchEvent(buttonClick);
+        break;
+        case "3":
+            three.dispatchEvent(buttonClick);
+        break;
+        case "4":
+            four.dispatchEvent(buttonClick);
+        break;
+        case "5":
+            five.dispatchEvent(buttonClick);
+        break;
+        case "6":
+            six.dispatchEvent(buttonClick);
+        break;
+        case "7":
+            seven.dispatchEvent(buttonClick);
+        break;
+        case "8":
+            eight.dispatchEvent(buttonClick);
+        break;
+        case "9":
+            nine.dispatchEvent(buttonClick);
+        break;
+        case "0":
+            zero.dispatchEvent(buttonClick);
+        break;
+        case ".":
+            decimal.dispatchEvent(buttonClick);
+        break;
+        case "+":
+            addition.dispatchEvent(buttonClick);
+        break;
+        case "-":
+            subtraction.dispatchEvent(buttonClick);
+        break;
+        case "*":
+            multiplication.dispatchEvent(buttonClick);
+        break;
+        case "/":
+            division.dispatchEvent(buttonClick);
+        break;
+        case "=":
+            equality.dispatchEvent(buttonClick);
+        break;
+        case "Enter":
+            equality.dispatchEvent(buttonClick);
+        break;
+        case "NumpadEnter":
+            equality.dispatchEvent(buttonClick);
+        break;
+        case "Backspace":
+            backspace.dispatchEvent(buttonClick);
+        break;
+        case "Escape":
+            reset.dispatchEvent(buttonClick);
+        break;
+    }
+};
+
+//establishes event object to be called with keyboard commands
+const buttonClick = new Event("click", {bubbles: true});
 
 //populates the display for the calculation on the screen field
-document.addEventListener("click", function showValue(event) {
+document.addEventListener("click", showValue);
+    
+function showValue(event) {
     const screen = document.querySelector("#screen");
-
     switch (event.target.id) {
         case "one":
             screen.textContent += "1";
@@ -114,7 +185,7 @@ document.addEventListener("click", function showValue(event) {
                     screen.textContent += ".";
                 }
             break;
-        case "add":
+        case "addition":
             let symbolPlus = document.querySelector("#screen").innerHTML;
             let charsPlus = symbolPlus.split("");
             if (charsPlus.includes("+")) {
@@ -169,7 +240,7 @@ document.addEventListener("click", function showValue(event) {
                 screen.textContent += "+";
             }
             break;
-        case "subtract":
+        case "subtraction":
             let symbolMinus = document.querySelector("#screen").innerHTML;
             let charsMinus = symbolMinus.split("");
             if (charsMinus.includes("+")) {
@@ -224,7 +295,7 @@ document.addEventListener("click", function showValue(event) {
                 screen.textContent += "-";
             }
             break;
-        case "multiply":
+        case "multiplication":
             let symbolMulti = document.querySelector("#screen").innerHTML;
             let charsMulti = symbolMulti.split("");
             if (charsMulti.includes("+")) {
@@ -279,7 +350,7 @@ document.addEventListener("click", function showValue(event) {
                 screen.textContent += "*";
             }
             break;
-        case "divide":
+        case "division":
             let symbolDivi = document.querySelector("#screen").innerHTML;
             let charsDivi = symbolDivi.split("");
             if (charsDivi.includes("+")) {
@@ -335,7 +406,7 @@ document.addEventListener("click", function showValue(event) {
             }
             break;
 // uses "=" button to log data as variables, runs operate() with assigned variable values, and displays the result
-        case "equals":
+        case "equality":
             if (screen.textContent.includes("+")) {
                 let operant = "+";
                 let halfPlus = screen.textContent.split("+");
@@ -373,16 +444,16 @@ document.addEventListener("click", function showValue(event) {
             }
             break;
     }
-})
+}
 
-// sets reset button to clear screen data, which is what loads all variables for calculations
+// sets Reset button to clear screen data, which is what loads all variables for calculations
 const resetButton = document.querySelector("#reset");
 resetButton.addEventListener("click", function resetValue() {
     const resetScreen = document.querySelector("#screen");
     resetScreen.textContent = "";
 });
 
-// designates an UNDO button to allow the user to undo something
+// designates an Undo button to allow the user to undo something
 const backspace = document.querySelector("#backspace");
 backspace.addEventListener("click", function undo() {
     const undoScreen = document.querySelector("#screen");
