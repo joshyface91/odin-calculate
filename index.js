@@ -407,6 +407,10 @@ function showValue(event) {
             break;
 // uses "=" button to log data as variables, runs operate() with assigned variable values, and displays the result
         case "equality":
+            const minusCase = screen.textContent;
+            let minusCaseChar = minusCase.split("");
+            minusCaseChar.shift();
+            let minusCaseRevised = minusCaseChar.join("");
             if (screen.textContent.includes("+")) {
                 let operant = "+";
                 let halfPlus = screen.textContent.split("+");
@@ -414,13 +418,20 @@ function showValue(event) {
                 let valueB = Number(halfPlus[1]);
                 let results = operate(operant, valueA, valueB);
                 screen.textContent = Math.round(results * 100) / 100;
-            } else if (screen.textContent.includes("-")) {
+            } else if (minusCaseRevised.includes("-")) {
                 let operant = "-";
                 let halfMinus = screen.textContent.split("-");
-                let valueA = Number(halfMinus[0]);
-                let valueB = Number(halfMinus[1]);
-                let results = operate(operant, valueA, valueB);
-                screen.textContent = Math.round(results * 100) / 100;
+                if (halfMinus[0] === "") {
+                    let valueA = -(Number(halfMinus[1]));
+                    let valueB = Number(halfMinus[2]);
+                    let results = operate(operant, valueA, valueB);
+                    screen.textContent = Math.round(results * 100) / 100;
+                } else {
+                    let valueA = Number(halfMinus[0]);
+                    let valueB = Number(halfMinus[1]);
+                    let results = operate(operant, valueA, valueB);
+                    screen.textContent = Math.round(results * 100) / 100;
+                }
             } else if (screen.textContent.includes("*")) {
                 let operant = "*";
                 let halfMulti = screen.textContent.split("*");
@@ -451,6 +462,9 @@ const resetButton = document.querySelector("#reset");
 resetButton.addEventListener("click", function resetValue() {
     const resetScreen = document.querySelector("#screen");
     resetScreen.textContent = "";
+    let valueA = 0;
+    let valueB = 0;
+    let operant = "+";
 });
 
 // designates an Undo button to allow the user to undo something
